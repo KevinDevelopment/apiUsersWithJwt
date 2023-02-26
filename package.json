@@ -1,0 +1,23 @@
+{
+  "name": "api_jwt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.4.2",
+    "mysql2": "^3.1.2",
+    "nodemon": "^2.0.20",
+    "yup": "^1.0.0"
+  }
+}
