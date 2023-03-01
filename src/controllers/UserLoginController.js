@@ -2,8 +2,6 @@ const PasswordService = require("../services/PasswordService");
 const FindUserService = require("../services/FindUserService");
 const generateToken = require("../auth/token");
 
-const knex = require("../database/connection");
-
 class UserLoginController {
 
   async userLogin(req, res) {
@@ -16,7 +14,7 @@ class UserLoginController {
     }
 
     const findUserInDatabase = await FindUserService.findByEmail(email);
-    console.log(findUserInDatabase);
+    
 
     if (findUserInDatabase.length <= 0) {
       return res.status(404).json({

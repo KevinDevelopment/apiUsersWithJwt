@@ -9,9 +9,9 @@ const UpdateUserController = require("../controllers/UpdateUserController");
 const DeleteUserController = require("../controllers/DeleteUserController");
 const UserLoginController = require("../controllers/UserLoginController")
 
-router.post("/login", UserLoginController.userLogin);
+router.post("/signin", UserLoginController.userLogin);
 router.post("/user", CreateUserController.createUser);
-router.get("/users", authenticate, ListAllUsersController.listAllUsers);  
+router.get("/users", authenticate, ListAllUsersController.listAllUsers);
 router.patch("/user", UpdateUserController.updateUser);
 router.delete("/user/:id", DeleteUserController.deleteUser);
 

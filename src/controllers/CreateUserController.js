@@ -5,13 +5,7 @@ const regexPatternTovalidateEmail = require("../utils/regex");
 class CreateUserController {
 
   async createUser(req, res) {
-    const { id, name, email, password } = req.body;
-
-    if (!id) {
-      return res.status(406).json({
-        message: "invalid data."
-      })
-    }
+    const { name, email, password } = req.body;
 
     if (!name) {
       return res.status(406).json({
@@ -48,17 +42,9 @@ class CreateUserController {
         message: "already registered user this email."
       })
     }
+    
 
-    const findUserById = await FindUserService.findById(id);
-
-
-    if (findUserById.length > 0) {
-      return res.status(400).json({
-        message: "id cannot be repeated."
-      })
-    }
-
-    const createNewUser = await CreateUserService.createUser(id, name, email, password);
+    const createNewUser = await CreateUserService.createUser( name, email, password );
 
     return res.status(200).json({
       message: "successfully registered user."

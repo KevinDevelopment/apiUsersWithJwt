@@ -6,7 +6,6 @@ class PasswordService {
   async decryptPassword(email, password) {
     try {
       const listAllUserData = await FindUserService.findByEmail(email)  
-      console.log(listAllUserData);    
       const passwordCompare = await bcrypt.compare(password, listAllUserData[0].PASSWORD);
       return passwordCompare;
     } catch (error) {
