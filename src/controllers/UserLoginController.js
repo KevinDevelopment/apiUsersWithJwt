@@ -9,7 +9,7 @@ class UserLoginController {
 
     if (!email || !password) {
       return res.status(406).json({
-        message: "provide login details"
+        message: "Provide login details"
       })
     }
 
@@ -26,12 +26,12 @@ class UserLoginController {
 
     if (!verifyPasswordInDatabase) {
       return res.status(404).json({
-        messsage: "invalid data"
+        messsage: "Invalid data"
       })
     }
 
     return res.status(200).json({
-      message: "successfully logged in",
+      message: "Successfully logged in",
       token: generateToken(findUserInDatabase[0].email, findUserInDatabase[0].id)
     });
 

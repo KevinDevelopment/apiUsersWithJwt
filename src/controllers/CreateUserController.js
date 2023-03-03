@@ -7,21 +7,9 @@ class CreateUserController {
   async createUser(req, res) {
     const { name, email, password } = req.body;
 
-    if (!name) {
+    if (!name || !email || !password) {
       return res.status(406).json({
-        message: "invalid data."
-      })
-    }
-
-    if (!email) {
-      return res.status(406).json({
-        message: "invalid data."
-      })
-    }
-
-    if (!password) {
-      return res.status(406).json({
-        message: "invalid data."
+        message: "Invalid data."
       })
     }
 
@@ -30,7 +18,7 @@ class CreateUserController {
 
     if (!functionTovalidateEmail) {
       return res.status(406).json({
-        message: "please enter a valid email."
+        message: "Please enter a valid email."
       })
     }
 
@@ -39,7 +27,7 @@ class CreateUserController {
 
     if (findUserByEmail.length > 0) {
       return res.status(400).json({
-        message: "already registered user this email."
+        message: "Already registered user this email."
       })
     }
     
@@ -47,7 +35,7 @@ class CreateUserController {
     const createNewUser = await CreateUserService.createUser( name, email, password );
 
     return res.status(200).json({
-      message: "successfully registered user."
+      message: "Successfully registered user."
     })
 
   }

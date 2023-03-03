@@ -6,7 +6,7 @@ class ListAllUsersController {
     const listOfUsers = await ListAllUsersService.listUsers();
 
     return res.status(200).json({
-      users: listOfUsers.length <= 0 ? "you do not have any user registered at the moment" : listOfUsers
+      users: listOfUsers.length <= 0 ? "You do not have any user registered at the moment" : listOfUsers
     });
   }
 

@@ -9,7 +9,7 @@ class UpdateUserController {
 
     if (!id || !name || !email) {
       return res.status(406).json({
-        message: "invalid data"
+        message: "Invalid data"
       })
     }
 
@@ -18,7 +18,7 @@ class UpdateUserController {
 
     if (checkIfIdExistsInDatabase.length <= 0) {
       return res.status(406).json({
-        message: "id not found"
+        message: "Id not found"
       });
     }
 
@@ -26,7 +26,7 @@ class UpdateUserController {
 
     if (!functionTovalidateEmail) {
       return res.status(406).json({
-        message: "please enter a valid email."
+        message: "Please enter a valid email."
       })
     }
 
