@@ -13,6 +13,12 @@ class CreateUserController {
       })
     }
 
+    if (password.length <= 6) {
+      return res.status(406).json({
+        message: "password must be more than 6 characters"
+      })
+    }
+
     const functionTovalidateEmail = regexPatternTovalidateEmail(email);
 
 
@@ -30,9 +36,9 @@ class CreateUserController {
         message: "Already registered user this email"
       })
     }
-    
 
-    const createNewUser = await CreateUserService.createUser( name, email, password );
+
+    const createNewUser = await CreateUserService.createUser(name, email, password);
 
     return res.status(200).json({
       message: "Successfully registered user"

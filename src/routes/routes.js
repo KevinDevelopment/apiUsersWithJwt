@@ -12,8 +12,8 @@ const UserLoginController = require("../controllers/UserLoginController")
 router.post("/signin", UserLoginController.userLogin);
 router.post("/user", CreateUserController.createUser);
 router.get("/users", authenticate, ListAllUsersController.listAllUsers);
-router.patch("/user", UpdateUserController.updateUser);
-router.delete("/user/:id", DeleteUserController.deleteUser);
+router.patch("/user", authenticate, UpdateUserController.updateUser);
+router.delete("/user/:id", authenticate, DeleteUserController.deleteUser);
 
 module.exports = router;
 
