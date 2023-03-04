@@ -14,7 +14,6 @@ class UserLoginController {
     }
 
     const findUserInDatabase = await FindUserService.findByEmail(email);
-    
 
     if (findUserInDatabase.length <= 0) {
       return res.status(404).json({
@@ -26,13 +25,13 @@ class UserLoginController {
 
     if (!verifyPasswordInDatabase) {
       return res.status(404).json({
-        messsage: "Invalid data"
+        message: "Invalid data"
       })
     }
 
     return res.status(200).json({
       message: "Successfully logged in",
-      token: generateToken(findUserInDatabase[0].email, findUserInDatabase[0].id)
+      token: generateToken(findUserInDatabase[0].email, findUserInDatabase[0].id),
     });
 
   }

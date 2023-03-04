@@ -9,7 +9,7 @@ class CreateUserController {
 
     if (!name || !email || !password) {
       return res.status(406).json({
-        message: "Invalid data."
+        message: "Invalid data"
       })
     }
 
@@ -18,7 +18,7 @@ class CreateUserController {
 
     if (!functionTovalidateEmail) {
       return res.status(406).json({
-        message: "Please enter a valid email."
+        message: "Please enter a valid email"
       })
     }
 
@@ -27,7 +27,7 @@ class CreateUserController {
 
     if (findUserByEmail.length > 0) {
       return res.status(400).json({
-        message: "Already registered user this email."
+        message: "Already registered user this email"
       })
     }
     
@@ -35,7 +35,7 @@ class CreateUserController {
     const createNewUser = await CreateUserService.createUser( name, email, password );
 
     return res.status(200).json({
-      message: "Successfully registered user."
+      message: "Successfully registered user"
     })
 
   }
