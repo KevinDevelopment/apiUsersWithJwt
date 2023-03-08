@@ -9,13 +9,13 @@ class CreateUserController {
 
     if (!name || !email || !password) {
       return res.status(406).json({
-        message: "Invalid data"
+        message: "Dados inválidos, tente novamente"
       })
     }
 
     if (password.length <= 6) {
       return res.status(406).json({
-        message: "password must be more than 6 characters"
+        message: "A senha precisa ter mais de 6 caracteres"
       })
     }
 
@@ -24,7 +24,7 @@ class CreateUserController {
 
     if (!functionTovalidateEmail) {
       return res.status(406).json({
-        message: "Please enter a valid email"
+        message: "Por favor, insira um e-mail válido"
       })
     }
 
@@ -33,7 +33,7 @@ class CreateUserController {
 
     if (findUserByEmail.length > 0) {
       return res.status(400).json({
-        message: "Already registered user this email"
+        message: "Já existe uma conta registrada com este e-mail"
       })
     }
 
@@ -41,7 +41,7 @@ class CreateUserController {
     const createNewUser = await CreateUserService.createUser(name, email, password);
 
     return res.status(200).json({
-      message: "Successfully registered user"
+      message: "Você será redirecionado em breve"
     })
 
   }

@@ -9,7 +9,7 @@ class DeleteUserController {
 
     if (findUserInDatabase.length <= 0) {
       return res.status(406).json({
-        message: "Id not found"
+        message: "Não existe o Id informado"
       })
     }
 
@@ -17,7 +17,7 @@ class DeleteUserController {
     console.log(deleteUser);
 
     return res.status(200).json({
-      message: "Successfully deleted user"
+      message: "Deletado com sucesso"
     });
 
   }

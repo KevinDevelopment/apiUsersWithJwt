@@ -9,7 +9,7 @@ class UserLoginController {
 
     if (!email || !password) {
       return res.status(406).json({
-        message: "Provide login details"
+        message: "Por favor, informe os dados de login"
       })
     }
 
@@ -17,7 +17,7 @@ class UserLoginController {
 
     if (findUserInDatabase.length <= 0) {
       return res.status(404).json({
-        message: "There are no registered users with this email"
+        message: "Não existem contas associadas ao e-mail informado"
       })
     }
 
@@ -25,12 +25,12 @@ class UserLoginController {
 
     if (!verifyPasswordInDatabase) {
       return res.status(404).json({
-        message: "Invalid data"
+        message: "Dados inválidos"
       })
     }
 
     return res.status(200).json({
-      message: "Successfully logged in",
+      message: "Você será redirecionado em breve",
       token: generateToken(findUserInDatabase[0].email, findUserInDatabase[0].id),
     });
 
