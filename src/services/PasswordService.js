@@ -1,11 +1,11 @@
 const knex = require("../database/connection");
-const FindUserService = require("../services/FindUserService");
 const bcrypt = require("bcrypt");
+const LoginService = require("./LoginService");
 
 class PasswordService {
   async decryptPassword(email, password) {
     try {
-      const listAllUserData = await FindUserService.findByEmail(email)  
+      const listAllUserData = await LoginService.findByEmail(email);  
       const passwordCompare = await bcrypt.compare(password, listAllUserData[0].PASSWORD);
       return passwordCompare;
     } catch (error) {

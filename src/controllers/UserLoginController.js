@@ -1,5 +1,5 @@
 const PasswordService = require("../services/PasswordService");
-const FindUserService = require("../services/FindUserService");
+const LoginService = require("../services/LoginService");
 const generateToken = require("../auth/token");
 
 class UserLoginController {
@@ -13,7 +13,7 @@ class UserLoginController {
       })
     }
 
-    const findUserInDatabase = await FindUserService.findByEmail(email);
+    const findUserInDatabase = await LoginService.findByEmail(email);
 
     if (findUserInDatabase.length <= 0) {
       return res.status(404).json({
