@@ -8,7 +8,7 @@ const ListAllUsersController = require("../controllers/ListAllUsersContrroller")
 const UpdateUserController = require("../controllers/UpdateUserController");
 const DeleteUserController = require("../controllers/DeleteUserController");
 const UserLoginController = require("../controllers/UserLoginController")
-const RegisterNewUserService =  require("../controllers/RegisterNewUserController");
+const RegisterNewUserService = require("../controllers/RegisterNewUserController");
 
 router.post("/signin", UserLoginController.userLogin);
 router.post("/register/user", CreateUserController.createUser);
