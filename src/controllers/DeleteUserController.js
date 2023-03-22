@@ -17,7 +17,8 @@ class DeleteUserController {
     console.log(deleteUser);
 
     return res.status(200).json({
-      message: "Deletado com sucesso"
+      message: "Deletado com sucesso",
+      status: 200
     });
 
   }

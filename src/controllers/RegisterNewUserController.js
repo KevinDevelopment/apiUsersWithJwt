@@ -39,7 +39,8 @@ class RegiterNewUserController {
     const createNewUser = await RegiterNewUserService.registerNewUser(name, email, password);
 
     return res.status(200).json({
-      message: "Você será redirecionado em breve"
+      message: "Você será redirecionado em breve",
+      status: 200
     })
 
   }

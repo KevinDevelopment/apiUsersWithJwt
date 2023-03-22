@@ -33,7 +33,8 @@ class UpdateUserController {
     const updateUser = await UpdateUserService.updateUser(id, name, email);
 
     return res.status(200).json({
-      message: "Atualizado com sucesso"
+      message: "Atualizado com sucesso",
+      status: 200
     });
   }
 
