@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const limiter = require("../utils/ratelimit");
 
+const limiter = require("../middleware/rateLimit");
 const authenticate = require("../middleware/authentication");
 
 const CreateUserController = require("../controllers/CreateUserController");
@@ -11,9 +11,9 @@ const DeleteUserController = require("../controllers/DeleteUserController");
 const UserLoginController = require("../controllers/UserLoginController")
 const RegisterNewUserService = require("../controllers/RegisterNewUserController");
 
-router.post("/signin", UserLoginController.userLogin);
-router.post("/register/user", CreateUserController.createUser);
-router.post("/user", RegisterNewUserService.registerUser);
+router.post("/signin", limiter, UserLoginController.userLogin);
+router.post("/register/user", limiter, CreateUserController.createUser);
+router.post("/user", authenticate, RegisterNewUserService.registerUser);
 router.get("/users", authenticate,limiter, ListAllUsersController.listAllUsers);
 router.patch("/user", authenticate, UpdateUserController.updateUser);
 router.delete("/user/:id", authenticate, DeleteUserController.deleteUser);

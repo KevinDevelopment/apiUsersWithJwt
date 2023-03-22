@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const helmet = require("helmet");
 const router = require("./routes/routes");
-const limiter = require("./utils/ratelimit");
+const limiter = require("./middleware/rateLimit");
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
