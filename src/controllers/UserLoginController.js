@@ -31,6 +31,7 @@ class UserLoginController {
 
     return res.status(200).json({
       message: "Você será redirecionado em breve",
+      status: 200,
       token: generateToken(findUserInDatabase[0].email, findUserInDatabase[0].id),
     });
 

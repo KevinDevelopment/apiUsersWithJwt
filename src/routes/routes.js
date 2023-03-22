@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const limiter = require("../utils/ratelimit");
 
 const authenticate = require("../middleware/authentication");
 
@@ -13,7 +14,7 @@ const RegisterNewUserService = require("../controllers/RegisterNewUserController
 router.post("/signin", UserLoginController.userLogin);
 router.post("/register/user", CreateUserController.createUser);
 router.post("/user", RegisterNewUserService.registerUser);
-router.get("/users", authenticate, ListAllUsersController.listAllUsers);
+router.get("/users", authenticate,limiter, ListAllUsersController.listAllUsers);
 router.patch("/user", authenticate, UpdateUserController.updateUser);
 router.delete("/user/:id", authenticate, DeleteUserController.deleteUser);
 
