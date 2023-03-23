@@ -14,7 +14,7 @@ const RegisterNewUserService = require("../controllers/RegisterNewUserController
 router.post("/signin", limiter, UserLoginController.userLogin);
 router.post("/register/user", limiter, CreateUserController.createUser);
 router.post("/user", authenticate, RegisterNewUserService.registerUser);
-router.get("/users", authenticate,limiter, ListAllUsersController.listAllUsers);
+router.get("/users", authenticate, ListAllUsersController.listAllUsers);
 router.patch("/user", authenticate, UpdateUserController.updateUser);
 router.delete("/user/:id", authenticate, DeleteUserController.deleteUser);
 
