@@ -3,7 +3,7 @@ const knex = require("../database/connection");
 class UpdateUserService {
   async updateUser(id, name, email) {
     try {
-      const updateUserFromDatabase = await knex("Clients").update({ name: name, email: email }).where({ id: id });
+      const updateUserFromDatabase = await knex("clients").update({ name: name, email: email }).where({ id: id });
       return updateUserFromDatabase;
     } catch (error) {
       console.error(error);

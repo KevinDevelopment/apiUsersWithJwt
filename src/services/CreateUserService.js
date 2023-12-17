@@ -7,7 +7,7 @@ class CreateUserService {
     try {
       const userId = uuidv4();
       const encryptedPassword = await bcrypt.hash(password, 10);
-      const insertNewUser = await knex("USERS").insert({ id: userId, name, email, password: encryptedPassword });
+      const insertNewUser = await knex("user").insert({ id: userId, email, password: encryptedPassword });
     } catch (error) {
       console.error(error);
     }

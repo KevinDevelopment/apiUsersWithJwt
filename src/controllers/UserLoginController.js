@@ -22,6 +22,7 @@ class UserLoginController {
     }
 
     const verifyPasswordInDatabase = await PasswordService.decryptPassword(email, password);
+    console.log(verifyPasswordInDatabase)
 
     if (!verifyPasswordInDatabase) {
       return res.status(404).json({
@@ -33,6 +34,7 @@ class UserLoginController {
       message: "Você será redirecionado em breve",
       status: 200,
       token: generateToken(findUserInDatabase[0].email, findUserInDatabase[0].id),
+      findUserInDatabase
     });
 
   }
